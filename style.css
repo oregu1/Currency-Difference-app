@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+:root {
+  --green: #108340;
+  --red: #cf1901;
+  --diff: #fff;
+  --radius: 12px;
+  --border-color: rgba(0, 0, 0, .2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition: all .3s linear;
+  transition: all .3s linear;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 100vh;
+  background-image: linear-gradient(76.3deg, #2c3e4e 12.6%, #456783 82.8%);
+  padding: 20px;
+}
+
+body table {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  border-radius: var(--radius);
+  background-color: var(--diff);
+}
+
+body table tr td:nth-child(2) {
+  width: 100px;
+  font-weight: 700;
+}
+
+body table tr td:nth-child(3) {
+  width: 200px;
+}
+
+body table th, body table td {
+  border: 1px solid var(--border-color);
+  padding: 10px;
+}
+
+body table th {
+  border-radius: var(--radius);
+}
+
+body table td {
+  position: relative;
+}
+
+body table td.red, body table td.green {
+  font-weight: 700;
+  color: var(--diff);
+}
+
+body table td.red {
+  background-color: var(--red);
+}
+
+body table td.green {
+  background-color: var(--green);
+}
+
+body table td span {
+  display: none;
+  position: absolute;
+  top: -35px;
+  left: 0;
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, #e22525 0%, #d33131 82.8%);
+  border-radius: 10px;
+  padding: 5px;
+  color: var(--diff);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+body table td.char-code:hover {
+  cursor: pointer;
+  background-color: antiquewhite;
+}
+
+body table td.char-code:hover span {
+  display: block;
+}
+/*# sourceMappingURL=style.css.map */
