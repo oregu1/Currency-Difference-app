@@ -1,7 +1,7 @@
 const table = document.querySelector('table');
 
-window.addEventListener('DOMContentLoaded', () => {
-    fetch('https://www.cbr-xml-daily.ru/daily_json.js')
+window.addEventListener('DOMContentLoaded', async () => {
+    await fetch('https://www.cbr-xml-daily.ru/daily_json.js')
     .then(res => res.json())
     .then(response => {
         let data = Object.values(response.Valute);
@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
                  <td class="char-code">${item.CharCode}
                     <span>${item.Name}</span>
                  </td>
-                 <td>${Number.parseFloat(item.Value).toFixed(2)} ₽</td>
+                 <td>${Number.parseFloat(item.Value).toFixed(3)} ₽</td>
                  <td class="${colorRating(difference)}">${difference}%</td>
              </tr>`
         })
@@ -22,11 +22,9 @@ window.addEventListener('DOMContentLoaded', () => {
 })
 
 function colorRating(num) {
-    if(num < 0) {
+    if(num > 0) {
         return 'green'
     } else {
         return 'red'
     }
 }
-
-// function 
