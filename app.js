@@ -1,7 +1,8 @@
-//ПОЛУЧАЕМ ДОСТУП К таблице
+//Get elements
 const table = document.querySelector('table');
 
 window.addEventListener('DOMContentLoaded', async () => {
+    //send GET-request to get data
     await fetch('https://www.cbr-xml-daily.ru/daily_json.js')
     .then(res => res.json())
     .then(response => {
@@ -22,7 +23,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     .catch(error => console.log(error))
 })
 
-//Функция окрашивающая данные. На понижение - красным, на повышение - зеленым
+//Colors data when increasing or decreasing
 function colorRating(num) {
     if(num > 0) {
         return 'green'
