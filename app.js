@@ -1,3 +1,4 @@
+//ПОЛУЧАЕМ ДОСТУП К таблице
 const table = document.querySelector('table');
 
 window.addEventListener('DOMContentLoaded', async () => {
@@ -5,7 +6,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     .then(res => res.json())
     .then(response => {
         let data = Object.values(response.Valute);
-        data.forEach(item => {
+        data.map(item => {
             let difference = Number.parseFloat((((item.Value - item.Previous) / item.Previous) * 100)).toFixed(2);
     
             table.innerHTML += `
@@ -21,6 +22,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     .catch(error => console.log(error))
 })
 
+//Функция окрашивающая данные. На понижение - красным, на повышение - зеленым
 function colorRating(num) {
     if(num > 0) {
         return 'green'
@@ -28,3 +30,4 @@ function colorRating(num) {
         return 'red'
     }
 }
+
